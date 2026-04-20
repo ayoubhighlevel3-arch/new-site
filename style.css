@@ -182,14 +182,38 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     align-items: center;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: white !important;
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
 }
 
-.logo span {
-    color: #60A5FA; /* Lighter blue for dark background */
+.brand-logo .acronym {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--text-light); /* white */
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.brand-logo .divider {
+    width: 2px;
+    height: 1.4rem;
+    background-color: #3B82F6;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+.brand-logo .full-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-light-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-links {
