@@ -1,23 +1,24 @@
 :root {
-    /* Colors - Light Theme Focus */
-    --bg-light: #FAFAFA;
+    /* Colors */
+    --bg-light: #FAFAF7;       /* Warm off-white body */
     --bg-white: #FFFFFF;
-    --bg-dark: #0A0F1A; /* For Hero and Footer */
+    --bg-dark: #0C1222;        /* Deep navy for Hero & Footer */
     
-    /* Text Colors */
-    --text-dark: #111827;
+    /* Text */
+    --text-dark: #0F172A;      /* Near-black navy */
     --text-muted: #4B5563;
     --text-light: #FFFFFF;
-    --text-light-muted: #9CA3AF;
+    --text-light-muted: #94A3B8;
     
     /* UI Elements */
-    --border-color: #E5E7EB;
-    --border-dark: rgba(255, 255, 255, 0.1);
+    --border-color: #E8E4DC;   /* Warm border */
+    --border-dark: rgba(255, 255, 255, 0.08);
     
-    /* Accents */
-    --accent-blue: #2563EB;
-    --accent-blue-hover: #1D4ED8;
-    --accent-blue-light: #DBEAFE;
+    /* Gold Accent */
+    --accent: #C9A84C;         /* Signature gold */
+    --accent-hover: #B8952F;   /* Deeper gold on hover */
+    --accent-light: #FDF3DC;   /* Gold tint for backgrounds */
+    --accent-dark: #F0C560;    /* Lighter gold for dark backgrounds */
     
     /* Typography */
     --font-sans: 'Inter', sans-serif;
@@ -31,10 +32,10 @@
     
     /* Effects */
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-float: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 4px 12px -1px rgba(15, 23, 42, 0.1);
+    --shadow-lg: 0 10px 24px -3px rgba(15, 23, 42, 0.12);
+    --shadow-float: 0 20px 40px -5px rgba(15, 23, 42, 0.15);
 }
 
 * {
@@ -70,11 +71,12 @@ h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
 h4 { font-size: 1.25rem; font-weight: 600; }
 p { color: var(--text-muted); font-size: 1.125rem; }
 
-/* The highlight exists in the dark hero, so we keep it bright */
+/* The highlight exists in the dark hero, so we keep it bright gold */
 .hero .highlight {
-    background: linear-gradient(135deg, #FFFFFF, #93C5FD);
+    background: linear-gradient(135deg, #FFFFFF, var(--accent-dark));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Layout */
@@ -117,35 +119,37 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 }
 
 .btn-primary {
-    background-color: var(--accent-blue);
-    color: white;
+    background-color: var(--accent);
+    color: var(--text-dark);
     box-shadow: var(--shadow-sm);
+    font-weight: 700;
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-blue-hover);
+    background-color: var(--accent-hover);
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
 }
 
-/* Primary buttons in light sections */
+/* Primary buttons in light sections stay gold */
 .section:not(.hero) .btn-primary {
-    background-color: var(--text-dark);
+    background-color: var(--accent);
+    color: var(--text-dark);
 }
 
 .section:not(.hero) .btn-primary:hover {
-    background-color: #000000;
+    background-color: var(--accent-hover);
 }
 
 .btn-outline {
     background-color: transparent;
     color: var(--text-light);
-    border: 1px solid var(--border-dark);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-outline:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* Outline buttons in light sections */
@@ -156,8 +160,8 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 }
 
 .section:not(.hero) .btn-outline:hover {
-    background-color: #F3F4F6;
-    border-color: #D1D5DB;
+    background-color: var(--bg-light);
+    border-color: #C9B99A;
 }
 
 .btn-sm { padding: 0.6rem 1.2rem; font-size: 0.875rem; }
@@ -200,7 +204,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 .brand-logo .divider {
     width: 2px;
     height: 1.4rem;
-    background-color: #3B82F6;
+    background-color: var(--accent);
     border-radius: 2px;
     opacity: 0.8;
 }
@@ -289,7 +293,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 .trust-indicators .feather {
     width: 14px;
     height: 14px;
-    color: #93C5FD;
+    color: var(--accent-dark);
 }
 
 .trust-indicators .dot {
@@ -301,9 +305,9 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     align-items: center;
     gap: 0.5rem;
     padding: 0.4rem 1rem;
-    background: rgba(37, 99, 235, 0.15);
-    color: #93C5FD;
-    border: 1px solid rgba(37, 99, 235, 0.3);
+    background: rgba(201, 168, 76, 0.12);
+    color: var(--accent-dark);
+    border: 1px solid rgba(201, 168, 76, 0.3);
     border-radius: 20px;
     font-size: 0.875rem;
     font-weight: 600;
@@ -325,7 +329,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     margin-right: auto;
 }
 
-/* Ambient Hero Glow */
+/* Ambient Hero Glow — gold toned */
 .hero-glow {
     position: absolute;
     top: 50%;
@@ -333,7 +337,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     transform: translate(-50%, -50%);
     width: 600px;
     height: 400px;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     z-index: 1;
     pointer-events: none;
@@ -364,7 +368,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--accent-blue);
+    color: var(--accent);
     margin-bottom: 1rem;
 }
 
@@ -401,7 +405,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 .problem-right blockquote {
     margin-top: 2rem;
     padding-left: 1.25rem;
-    border-left: 3px solid var(--accent-blue);
+    border-left: 3px solid var(--accent);
     font-size: 1.1rem;
     font-style: italic;
     color: var(--text-dark);
@@ -418,7 +422,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 
 /* Expertise Section — split with credential list */
 .expertise-section {
-    background-color: #F8F9FA;
+    background-color: #F7F5F0;   /* warm parchment */
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -565,7 +569,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 
 /* Services / Pricing Section */
 .services-section {
-    background-color: #F8F9FA;
+    background-color: #F7F5F0;   /* warm parchment */
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
@@ -588,7 +592,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 .expertise-card .feather {
     width: 32px;
     height: 32px;
-    color: var(--accent-blue);
+    color: var(--accent);
     margin-bottom: 1.25rem;
 }
 
@@ -624,10 +628,10 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     font-size: 2rem;
     font-weight: 900;
     font-family: var(--font-heading);
-    color: var(--accent-blue);
+    color: var(--accent);
     line-height: 1;
     margin-bottom: 1rem;
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 .process-item h3 {
@@ -680,9 +684,9 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 }
 
 .pricing-card.popular {
-    border: 2px solid var(--text-dark);
+    border: 2px solid var(--accent);
     background-color: var(--bg-white);
-    transform: scale(1.03); 
+    transform: scale(1.03);
     box-shadow: var(--shadow-float);
     z-index: 2;
 }
@@ -692,8 +696,8 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--text-dark);
-    color: white;
+    background: var(--accent);
+    color: var(--text-dark);
     padding: 0.2rem 1rem;
     border-radius: 20px;
     font-size: 0.75rem;
@@ -708,7 +712,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 
 .card-header p {
     font-size: 0.875rem;
-    color: var(--accent-blue);
+    color: var(--accent);
     margin-top: 0.2rem;
     font-weight: 500;
 }
@@ -756,7 +760,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 .features .feather {
     width: 18px;
     height: 18px;
-    color: var(--accent-blue);
+    color: var(--accent);
     flex-shrink: 0;
 }
 
@@ -837,7 +841,7 @@ p { color: var(--text-muted); font-size: 1.125rem; }
 }
 
 .sub-cta a {
-    color: var(--accent-blue);
+    color: var(--accent);
     text-decoration: none;
     font-weight: 500;
 }
