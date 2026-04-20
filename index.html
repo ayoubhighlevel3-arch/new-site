@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Feather Icons for lightweight SVGs -->
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
@@ -53,84 +52,96 @@
         <div class="grid-overlay"></div>
     </header>
 
+    <!-- THE PROBLEM: Editorial split layout, no cards -->
     <section id="problem" class="section problem-section">
-        <div class="container container-sm">
-            <div class="section-header fade-in">
-                <h2>Why your accounts keep getting flagged.</h2>
-                <p>Public terms of service are a decoy. The algorithms you are fighting do not read the public policy pages.</p>
+        <div class="container problem-container">
+            <div class="problem-left fade-in">
+                <span class="section-label">The Reality</span>
+                <h2>The platforms don't ban you.<br>Their machines do.</h2>
             </div>
-            <div class="problem-content fade-in">
-                <p>They run on hidden trigger words, undocumented shadowban flags, and automated scripts that prioritize platforms' legal safety over your revenue. Unless you know the exact backend rules governing these AI systems, you are flying blind.</p>
-                <div class="quote-box">
-                    <p>"You aren't getting banned by humans. You're getting banned by machines. We are the ones who trained them."</p>
-                </div>
+            <div class="problem-right fade-in">
+                <p class="problem-lead">Public terms of service are written for lawyers, not algorithms. What actually triggers a removal is a completely different rulebook — one that lives only inside the enforcement teams.</p>
+                <p>Hidden trigger phrases, visual pattern classifiers, URL risk scores, behavioral signals. Unless you've sat inside the enforcement engine, you're guessing. And guessing costs you accounts, revenue, and reach.</p>
+                <blockquote>"You aren't getting flagged by a person reading your post. You're getting flagged by a machine we helped build."</blockquote>
             </div>
         </div>
     </section>
 
+    <!-- THE MOAT: Split layout, team credentials as a list -->
     <section id="expertise" class="section expertise-section">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>Former platform leaders. One team. Every platform covered.</h2>
-                <p>We aren't a team of ex-employees who read the policy pages. We're former team leads and senior decision-makers from inside Meta, ByteDance, Snapchat, Google, and more — brought together to make sure your content passes, whatever platform you're on.</p>
-            </div>
-            
-            <div class="expertise-grid">
-                <div class="expertise-card slide-up">
-                    <i data-feather="layers"></i>
-                    <h3>Platform-Wide Coverage</h3>
-                    <p>From TikTok and Instagram to YouTube, Snapchat, and Facebook — we have someone on the inside of every major platform, so no policy change catches us off guard.</p>
+            <div class="expertise-split fade-in">
+                <div class="expertise-left">
+                    <span class="section-label">The Moat</span>
+                    <h2>Former platform insiders.<br>Not consultants who<br>read the docs.</h2>
+                    <p>We're former team leads and senior enforcement decision-makers from inside the platforms — not freelancers who read the help center. We built the systems that review your content.</p>
+                    <a href="#contact" class="btn btn-primary">Talk to the team</a>
                 </div>
-                <div class="expertise-card slide-up" style="animation-delay: 100ms;">
-                    <i data-feather="eye"></i>
-                    <h3>We Know How It Really Works</h3>
-                    <p>There is what the policy says, and there is what actually gets flagged. We spent years on the enforcement side. We know the gap — and we use it to protect your content.</p>
-                </div>
-                <div class="expertise-card slide-up" style="animation-delay: 200ms;">
-                    <i data-feather="shield"></i>
-                    <h3>Built for the Ones Who Create</h3>
-                    <p>Whether you're a creator with millions of followers, an agency managing dozens of clients, or a brand posting across multiple channels — we make sure your content stays live.</p>
+                <div class="expertise-right">
+                    <div class="expertise-fact">
+                        <strong>Meta</strong>
+                        <span>Trust & Safety enforcement team lead</span>
+                    </div>
+                    <div class="expertise-fact">
+                        <strong>ByteDance / TikTok</strong>
+                        <span>Content moderation policy — 6 years</span>
+                    </div>
+                    <div class="expertise-fact">
+                        <strong>Snapchat</strong>
+                        <span>Platform integrity & abuse prevention</span>
+                    </div>
+                    <div class="expertise-fact">
+                        <strong>Google / YouTube</strong>
+                        <span>Advertiser policy enforcement</span>
+                    </div>
+                    <p class="expertise-note">Every platform your content lives on — we have someone who worked on its enforcement team.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- WHO WE SERVE: Numbered rows, no cards, no icons -->
     <section id="audience" class="section audience-section">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>Who We Serve</h2>
-                <p>We don't just restore ad accounts. We protect the entire creator and advertising ecosystem.</p>
+            <div class="audience-header fade-in">
+                <span class="section-label">Who We Serve</span>
+                <h2>Built for the ones<br>the algorithm targets most.</h2>
             </div>
-            
-            <div class="audience-grid">
-                <div class="audience-card slide-up">
-                    <div class="audience-icon"><i data-feather="users"></i></div>
-                    <h3>Influencers & Creators</h3>
-                    <p>Protecting your reach, your monetization, and your audience. We resolve silent shadowbans, restricted reach, and unfair moderation strikes so you can focus on creating.</p>
+            <div class="audience-rows">
+                <div class="audience-row slide-up">
+                    <div class="audience-row-num">01</div>
+                    <div class="audience-row-body">
+                        <h3>Influencers & Content Creators</h3>
+                        <p>You built an audience. One algorithmic mistake shouldn't take it away. We resolve shadowbans, restricted distribution, and moderation strikes — and make sure it doesn't happen again.</p>
+                    </div>
                 </div>
-                <div class="audience-card slide-up" style="animation-delay: 100ms;">
-                    <div class="audience-icon"><i data-feather="briefcase"></i></div>
-                    <h3>Gray Niche Brands</h3>
-                    <p>Supplements, info-products, finance, and aggressive direct-response. We get your high-ROI campaigns approved without constantly burning through backup ad accounts.</p>
+                <div class="audience-row slide-up" style="animation-delay: 80ms;">
+                    <div class="audience-row-num">02</div>
+                    <div class="audience-row-body">
+                        <h3>Gray Niche Brands & Direct-Response Advertisers</h3>
+                        <p>Supplements, finance, info-products, aggressive offers. We review your creative and positioning before you spend a dollar — so your campaigns launch and stay live.</p>
+                    </div>
                 </div>
-                <div class="audience-card slide-up" style="animation-delay: 200ms;">
-                    <div class="audience-icon"><i data-feather="globe"></i></div>
-                    <h3>Global Agencies</h3>
-                    <p>Ensuring your clients' campaigns run smoothly. You manage the ad spend and the creative, we manage the compliance liability and ensure your funnels never shut down.</p>
+                <div class="audience-row slide-up" style="animation-delay: 160ms;">
+                    <div class="audience-row-num">03</div>
+                    <div class="audience-row-body">
+                        <h3>Agencies Managing High-Stakes Client Accounts</h3>
+                        <p>When a client account gets banned, it's your retention on the line. We integrate into your workflow as a compliance layer — so you catch the flag before the platform does.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SERVICES / PRICING -->
     <section id="services" class="section services-section">
         <div class="container">
-            <div class="section-header fade-in">
+            <div class="services-header fade-in">
+                <span class="section-label">Services</span>
                 <h2>What we do for you.</h2>
-                <p>For influencers, agencies, brands, and anyone serious about keeping their content live across every platform.</p>
+                <p>Flat-fee, no retainers, no guessing. Every service is delivered by someone who has actually enforced these policies.</p>
             </div>
-
             <div class="pricing-grid">
-                <!-- Tier 1 -->
                 <div class="pricing-card slide-up">
                     <div class="card-header">
                         <h4>Pre-Post Review</h4>
@@ -148,8 +159,6 @@
                     </ul>
                     <a href="#contact" class="btn btn-outline btn-full">Get Started</a>
                 </div>
-
-                <!-- Tier 2 -->
                 <div class="pricing-card popular slide-up" style="animation-delay: 100ms;">
                     <div class="popular-badge">Most Requested</div>
                     <div class="card-header">
@@ -168,8 +177,6 @@
                     </ul>
                     <a href="#contact" class="btn btn-primary btn-full">Start Your Appeal</a>
                 </div>
-
-                <!-- Tier 3 -->
                 <div class="pricing-card slide-up" style="animation-delay: 200ms;">
                     <div class="card-header">
                         <h4>Full Compliance Audit</h4>
@@ -191,39 +198,36 @@
         </div>
     </section>
 
+    <!-- PROCESS: Horizontal row, not stacked cards -->
     <section id="process" class="section process-section">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>The Insider Process</h2>
-                <p>How we diagnose and protect your content before it ever hits the algorithm.</p>
+            <div class="process-header fade-in">
+                <span class="section-label">How It Works</span>
+                <h2>From submission to verdict in 48 hours.</h2>
             </div>
-
-            <div class="process-steps">
-                <div class="process-step slide-up">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <h3>Submit</h3>
-                        <p>Send us your creatives, landing pages, URLs, scripts, or disabled account details.</p>
-                    </div>
+            <div class="process-row">
+                <div class="process-item slide-up">
+                    <div class="process-num">01</div>
+                    <h3>Submit</h3>
+                    <p>Send creatives, landing pages, scripts, or a disabled account URL. No intake form. Just send it.</p>
                 </div>
-                <div class="process-step slide-up" style="animation-delay: 100ms;">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <h3>Insider Review</h3>
-                        <p>Our former platform leaders run your assets through the exact internal moderation checklists used by Meta, TikTok, and Snapchat algorithms.</p>
-                    </div>
+                <div class="process-arrow">→</div>
+                <div class="process-item slide-up" style="animation-delay: 100ms;">
+                    <div class="process-num">02</div>
+                    <h3>Insider Review</h3>
+                    <p>We run your content through the exact internal enforcement checklists used on-platform — not a surface-level read.</p>
                 </div>
-                <div class="process-step slide-up" style="animation-delay: 200ms;">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <h3>Execute</h3>
-                        <p>You receive a definitive Pass/Fail/Fix verdict, or a custom appeal drafted to hit the exact bureaucratic levers needed to force a human review.</p>
-                    </div>
+                <div class="process-arrow">→</div>
+                <div class="process-item slide-up" style="animation-delay: 200ms;">
+                    <div class="process-num">03</div>
+                    <h3>Clear Verdict</h3>
+                    <p>Pass / Fail / Fix — with specific reasoning and a path forward, not a vague disclaimer.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA -->
     <section id="contact" class="section cta-section">
         <div class="container container-sm">
             <h2 class="fade-in">Your content should stay live.<br>Let us make sure it does.</h2>
@@ -250,7 +254,6 @@
 
     <script src="script.js"></script>
     <script>
-        // Initialize Feather icons
         feather.replace();
     </script>
 </body>
