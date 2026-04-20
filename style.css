@@ -1139,11 +1139,183 @@ p  { color: var(--text-muted); font-size: 1.0625rem; }
     .footer-disclaimer { text-align: center; }
 }
 
-/* ── Mobile nav ───────────────────────────────────────────── */
+/* ── Hamburger / Mobile Nav ───────────────────────────────── */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 200;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-light);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
+}
+
+/* Animated X state */
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile drawer */
+.mobile-nav-drawer {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(12, 18, 34, 0.98);
+    backdrop-filter: blur(16px);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.mobile-nav-drawer.open {
+    display: flex;
+    opacity: 1;
+}
+
+.mobile-nav-drawer a {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-drawer a:hover { color: var(--accent); }
+
+.mobile-nav-drawer .btn {
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
+}
+
+/* ── Tablet (≤ 1024px) ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .container { padding: 0 2.5rem; }
+    .section { padding: 4rem 0; }
+}
+
+/* ── Small Tablet / Large Phone (≤ 768px) ──────────────────── */
 @media (max-width: 768px) {
+    /* Container */
+    .container { padding: 0 1.25rem; }
+    .section { padding: 3.5rem 0; }
+
+    /* Nav */
     .nav-links { display: none; }
-    .hero-actions { flex-direction: column; }
-    .container { padding: 0 1.5rem; }
+    .nav-hamburger { display: flex; }
+    .navbar { padding: 1rem 0; }
+
+    /* Hero */
+    .hero { min-height: 100svh; padding-top: 4.5rem; padding-bottom: 3rem; }
+    .hero-container { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-card { display: none; }
+    .hero-content { text-align: center; }
+    .hero-actions { justify-content: center; flex-direction: column; align-items: center; }
+    .hero-actions .btn { width: 100%; max-width: 320px; }
+    .trust-indicators { justify-content: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.72rem; }
+    .badge { font-size: 0.72rem; }
+    .hero-subtitle { font-size: 1rem; margin-left: auto; margin-right: auto; }
+
+    /* Problem section */
+    .problem-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .problem-intro { position: static; }
+    .problem-facts { flex-direction: column; }
+    .problem-fact { flex-direction: column; gap: 0.5rem; border-right: none; border-bottom: 1px solid var(--border-color); padding: 1.25rem 1.5rem; }
+    .problem-fact:last-child { border-bottom: none; }
+    .problem-fact strong { min-width: unset; font-size: 1.35rem; }
+    .problem-body { margin-bottom: 2rem; }
+    .problem-quote { padding-top: 2rem; }
+    .problem-quote blockquote { font-size: 1.1rem; }
+
+    /* Expertise section */
+    .expertise-split { grid-template-columns: 1fr; gap: 2.5rem; }
+    .expertise-facts-grid { grid-template-columns: 1fr 1fr; }
+    .expertise-fact { padding: 1.25rem 1.25rem; }
+
+    /* Audience section */
+    .persona-panel.active { grid-template-columns: 1fr; gap: 2rem; }
+    .persona-tab { padding: 0.75rem 1rem; font-size: 0.82rem; }
+    .persona-left h3 { font-size: 1.4rem; }
+
+    /* Services */
+    .services-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .services-header { position: static; }
+    .services-header p { max-width: 100%; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .pricing-card.popular { transform: scale(1); }
+    .pricing-card { padding: 1.75rem 1.5rem; }
+    .price .amount { font-size: 2.5rem; }
+
+    /* Process */
+    .process-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .process-header { position: static; }
+    .process-step-row { grid-template-columns: 80px 1fr; gap: 1.5rem; padding: 2rem 0; }
+    .step-idx { font-size: 2.25rem; }
+
+    /* CTA */
+    .cta-section h2 { font-size: clamp(1.75rem, 6vw, 2.25rem); }
+    .cta-buttons .btn { width: 100%; max-width: 320px; }
+
+    /* Footer */
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; padding-bottom: 2.5rem; }
+    .footer-brand { grid-column: 1 / -1; }
+    .site-footer { padding: 3.5rem 0 0; }
+    .footer-bottom { padding: 1.25rem 0; }
+
+    /* General type */
+    h2 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+    h3 { font-size: 1.3rem; }
+    p  { font-size: 1rem; }
+}
+
+/* ── Phone (≤ 480px) ───────────────────────────────────────── */
+@media (max-width: 480px) {
+    .container { padding: 0 1rem; }
+    .section { padding: 3rem 0; }
+
+    /* Hero */
+    .hero { padding-top: 4rem; padding-bottom: 2.5rem; }
+    .trust-indicators { display: none; } /* Too cramped at 375px */
+    .hero-subtitle { font-size: 0.9375rem; }
+
+    /* Expertise grid — stack on very small screens */
+    .expertise-facts-grid { grid-template-columns: 1fr; }
+    .expertise-fact:nth-child(odd) { border-right: none; }
+    .expertise-fact:nth-child(3) { border-bottom: 1px solid var(--border-color); }
+    .expertise-fact:nth-child(4) { border-bottom: none; }
+
+    /* Process — collapse meta column fully */
+    .process-step-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.75rem 0; }
+    .step-meta { flex-direction: row; align-items: center; gap: 0.75rem; }
+    .step-idx { font-size: 1.75rem; }
+
+    /* Footer — single column */
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 0.75rem; }
+    .footer-disclaimer { text-align: center; }
+
+    /* Buttons */
+    .btn-lg { padding: 0.9rem 1.75rem; font-size: 1rem; }
+
+    /* Nav drawer links smaller */
+    .mobile-nav-drawer a { font-size: 1.6rem; }
 }
 
 /* ── Animations ───────────────────────────────────────────── */

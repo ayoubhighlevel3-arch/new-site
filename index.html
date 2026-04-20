@@ -27,8 +27,19 @@
                 <a href="#pricing">Pricing</a>
                 <a href="#contact" class="btn btn-primary btn-sm">Book Consult</a>
             </div>
+            <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile nav drawer -->
+    <div class="mobile-nav-drawer" id="mobileNav" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <a href="#expertise" class="mobile-nav-link">The Moat</a>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#pricing" class="mobile-nav-link">Pricing</a>
+        <a href="#contact" class="btn btn-primary mobile-nav-link">Book a Free Call</a>
+    </div>
 
     <header class="hero">
         <div class="container hero-container">
@@ -422,14 +433,40 @@
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 const target = tab.dataset.tab;
-
                 tabs.forEach(t => t.classList.remove('active'));
                 panels.forEach(p => p.classList.remove('active'));
-
                 tab.classList.add('active');
                 document.getElementById('tab-' + target).classList.add('active');
             });
         });
+
+        // Hamburger / mobile nav
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function openNav() {
+            hamburger.classList.add('open');
+            mobileNav.classList.add('open');
+            hamburger.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeNav() {
+            hamburger.classList.remove('open');
+            mobileNav.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.contains('open') ? closeNav() : openNav();
+        });
+
+        mobileLinks.forEach(link => link.addEventListener('click', closeNav));
+
+        // Close on ESC
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
     </script>
 </body>
 </html>
