@@ -238,8 +238,44 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     max-width: 800px;
 }
 
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.trust-indicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: var(--text-light-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.trust-indicators span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.trust-indicators .feather {
+    width: 14px;
+    height: 14px;
+    color: #93C5FD;
+}
+
+.trust-indicators .dot {
+    color: rgba(255, 255, 255, 0.2);
+}
+
 .badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.4rem 1rem;
     background: rgba(37, 99, 235, 0.15);
     color: #93C5FD;
@@ -252,6 +288,11 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     letter-spacing: 0.05em;
 }
 
+.badge .feather {
+    width: 14px;
+    height: 14px;
+}
+
 .hero-subtitle {
     font-size: 1.25rem;
     margin-bottom: 2.5rem;
@@ -260,10 +301,19 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     margin-right: auto;
 }
 
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
+/* Ambient Hero Glow */
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    filter: blur(40px);
 }
 
 /* Grid Background Effect (Constrained to Hero) */
