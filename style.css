@@ -850,22 +850,111 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     text-decoration: underline;
 }
 
-/* Footer (Dark) */
-footer {
-    padding: 3rem 0;
+/* ─── Footer ─────────────────────────────────────────── */
+.site-footer {
     background-color: var(--bg-dark);
+    padding: 5rem 0 0;
 }
 
-.footer-content {
+.footer-top {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Brand column */
+.footer-brand .brand-logo {
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+}
+
+.footer-tagline {
+    font-size: 0.9rem !important;
+    color: var(--text-light-muted) !important;
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+    max-width: 300px;
+}
+
+.footer-cta {
+    display: inline-flex;
+}
+
+/* Nav columns */
+.footer-col h5 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    font-family: var(--font-sans);
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-col ul li a,
+.footer-col ul li span {
+    font-size: 0.9rem;
+    color: var(--text-light-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    line-height: 1.4;
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent);
+}
+
+/* Bottom bar */
+.footer-bottom {
+    padding: 1.75rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
-.footer-content p {
-    font-size: 0.875rem;
-    color: var(--text-light-muted);
+.footer-bottom p {
+    font-size: 0.8rem !important;
+    color: rgba(148, 163, 184, 0.5) !important;
     margin: 0;
+}
+
+.footer-disclaimer {
+    text-align: right;
+    max-width: 480px;
+}
+
+@media (max-width: 900px) {
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-disclaimer {
+        text-align: center;
+    }
 }
 
 /* Mobile Responsiveness */
