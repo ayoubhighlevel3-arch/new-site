@@ -31,6 +31,8 @@
 
     <header class="hero">
         <div class="container hero-container">
+
+            <!-- LEFT: All existing text, now left-aligned -->
             <div class="hero-content fade-in">
                 <div class="badge">Built by the enforcers</div>
                 <h1>Your content reviewed by <span class="highlight">someone who used to flag it.</span></h1>
@@ -47,10 +49,60 @@
                     <span><i data-feather="check-circle"></i> Ad Account Protection</span>
                 </div>
             </div>
+
+            <!-- RIGHT: Compliance verdict card mockup -->
+            <div class="hero-card fade-in">
+                <div class="verdict-card">
+                    <div class="verdict-card-header">
+                        <div class="verdict-card-dot red"></div>
+                        <div class="verdict-card-dot yellow"></div>
+                        <div class="verdict-card-dot green"></div>
+                        <span class="verdict-card-title">SCB Compliance Review</span>
+                    </div>
+                    <div class="verdict-card-body">
+                        <div class="verdict-meta">
+                            <span class="verdict-platform">Meta — Instagram Reel</span>
+                            <span class="verdict-id">Review #4821</span>
+                        </div>
+                        <div class="verdict-checks">
+                            <div class="verdict-check">
+                                <span class="check-label">Visual classifier</span>
+                                <span class="check-status pass">PASS</span>
+                            </div>
+                            <div class="verdict-check">
+                                <span class="check-label">Copy trigger scan</span>
+                                <span class="check-status fix">FIX ↗</span>
+                            </div>
+                            <div class="verdict-check">
+                                <span class="check-label">URL risk score</span>
+                                <span class="check-status pass">PASS</span>
+                            </div>
+                            <div class="verdict-check">
+                                <span class="check-label">Landing page flags</span>
+                                <span class="check-status pass">PASS</span>
+                            </div>
+                            <div class="verdict-check">
+                                <span class="check-label">Behavioral signals</span>
+                                <span class="check-status pass">PASS</span>
+                            </div>
+                        </div>
+                        <div class="verdict-result">
+                            <div class="verdict-badge-row">
+                                <span class="verdict-badge-label">Verdict</span>
+                                <span class="verdict-outcome needs-edit">NEEDS EDIT</span>
+                            </div>
+                            <p class="verdict-issue">Issue: "guaranteed results" in copy triggers automated removal.</p>
+                            <p class="verdict-fix">Fix: Replace with "designed to help" — passes enforcement threshold.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="hero-glow"></div>
         <div class="grid-overlay"></div>
     </header>
+
 
     <!-- THE PROBLEM: Editorial split layout, no cards -->
     <!-- THE REALITY: Stat-led full-width editorial -->
