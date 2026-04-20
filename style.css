@@ -333,13 +333,23 @@ h1 { font-size: clamp(2.2rem, 4vw, 3.8rem); letter-spacing: -0.03em; margin-bott
     margin-right: auto;
 }
 
-/* ── Verdict Card (Hero Right Column) ─────────────────── */
+/* ── Hero Image (Right Column) ─────────────────────────── */
 .hero-card {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     z-index: 2;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 540px;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(201, 168, 76, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .verdict-card {
