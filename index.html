@@ -100,35 +100,79 @@
         </div>
     </section>
 
-    <!-- WHO WE SERVE: Numbered rows, no cards, no icons -->
+    <!-- WHO WE SERVE: Interactive persona picker tabs -->
     <section id="audience" class="section audience-section">
         <div class="container">
             <div class="audience-header fade-in">
                 <span class="section-label">Who We Serve</span>
-                <h2>Built for the ones<br>the algorithm targets most.</h2>
+                <h2>This is for you if the algorithm<br>has ever cost you money.</h2>
             </div>
-            <div class="audience-rows">
-                <div class="audience-row slide-up">
-                    <div class="audience-row-num">01</div>
-                    <div class="audience-row-body">
-                        <h3>Influencers & Content Creators</h3>
-                        <p>You built an audience. One algorithmic mistake shouldn't take it away. We resolve shadowbans, restricted distribution, and moderation strikes — and make sure it doesn't happen again.</p>
+
+            <div class="persona-tabs fade-in">
+                <button class="persona-tab active" data-tab="creators">Influencers & Creators</button>
+                <button class="persona-tab" data-tab="brands">Brands & Advertisers</button>
+                <button class="persona-tab" data-tab="agencies">Agencies</button>
+            </div>
+
+            <div class="persona-content">
+
+                <!-- Creators -->
+                <div class="persona-panel active" id="tab-creators">
+                    <div class="persona-left">
+                        <p class="persona-label">You're a creator.</p>
+                        <h3>One flag shouldn't cost you your entire audience.</h3>
+                        <p>Shadowbans, restricted reach, and content strikes are rarely about what you did wrong. They're about what the algorithm was trained to flag — and without insider knowledge, you can't fight back.</p>
+                        <a href="#contact" class="btn btn-primary">Protect Your Account</a>
+                    </div>
+                    <div class="persona-right">
+                        <p class="persona-right-label">We help you with</p>
+                        <ul class="persona-list">
+                            <li>Identifying what's triggering your restricted reach before you post</li>
+                            <li>Appealing shadowbans and content strikes with the right language</li>
+                            <li>Understanding which platforms are safe for your content type</li>
+                            <li>Pre-reviewing scripts and creatives against internal enforcement thresholds</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="audience-row slide-up" style="animation-delay: 80ms;">
-                    <div class="audience-row-num">02</div>
-                    <div class="audience-row-body">
-                        <h3>Gray Niche Brands & Direct-Response Advertisers</h3>
-                        <p>Supplements, finance, info-products, aggressive offers. We review your creative and positioning before you spend a dollar — so your campaigns launch and stay live.</p>
+
+                <!-- Brands -->
+                <div class="persona-panel" id="tab-brands">
+                    <div class="persona-left">
+                        <p class="persona-label">You run campaigns.</p>
+                        <h3>Stop burning budget on creatives that the review system will kill.</h3>
+                        <p>Supplements, finance, direct-response, info-products — if your vertical is even slightly gray, the algorithms are already watching. We tell you exactly what gets approved before you spend a dollar on media.</p>
+                        <a href="#contact" class="btn btn-primary">Review Your Creative</a>
+                    </div>
+                    <div class="persona-right">
+                        <p class="persona-right-label">We help you with</p>
+                        <ul class="persona-list">
+                            <li>Pre-flight creative review before ad submission</li>
+                            <li>Landing page compliance across Meta, TikTok, and Google</li>
+                            <li>Diagnosis and appeal of rejected campaigns and disabled accounts</li>
+                            <li>Understanding real enforcement thresholds for your niche category</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="audience-row slide-up" style="animation-delay: 160ms;">
-                    <div class="audience-row-num">03</div>
-                    <div class="audience-row-body">
-                        <h3>Agencies Managing High-Stakes Client Accounts</h3>
-                        <p>When a client account gets banned, it's your retention on the line. We integrate into your workflow as a compliance layer — so you catch the flag before the platform does.</p>
+
+                <!-- Agencies -->
+                <div class="persona-panel" id="tab-agencies">
+                    <div class="persona-left">
+                        <p class="persona-label">You manage clients.</p>
+                        <h3>When a client's account gets banned, it's your problem too.</h3>
+                        <p>One banned account can end a client relationship. We work quietly behind the scenes as your compliance layer — reviewing, flagging, and appealing before your clients even notice there was a risk.</p>
+                        <a href="#contact" class="btn btn-primary">Talk to the Team</a>
+                    </div>
+                    <div class="persona-right">
+                        <p class="persona-right-label">We help you with</p>
+                        <ul class="persona-list">
+                            <li>Ongoing compliance review integrated into your delivery workflow</li>
+                            <li>Full account audits before onboarding a new high-risk client</li>
+                            <li>Emergency ban appeals when a client account goes down</li>
+                            <li>Cross-platform risk scoring for agencies running multi-channel campaigns</li>
+                        </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -300,6 +344,22 @@
     <script src="script.js"></script>
     <script>
         feather.replace();
+
+        // Persona tab switcher
+        const tabs = document.querySelectorAll('.persona-tab');
+        const panels = document.querySelectorAll('.persona-panel');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
+
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById('tab-' + target).classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>

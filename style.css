@@ -488,68 +488,161 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     }
 }
 
-/* Audience Section — numbered rows, no cards */
+/* Audience Section — Tabbed persona picker */
 .audience-section {
-    background-color: var(--bg-white);
-    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.audience-section .section-label {
+    color: var(--accent);
 }
 
 .audience-header {
-    max-width: 500px;
-    margin-bottom: var(--space-lg);
+    max-width: 700px;
+    margin-bottom: 3rem;
 }
 
 .audience-header h2 {
     font-size: clamp(1.8rem, 3vw, 2.5rem);
     line-height: 1.2;
     margin-top: 0.5rem;
+    color: var(--text-light);
 }
 
-.audience-rows {
+/* Tab buttons */
+.persona-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 3rem;
+}
+
+.persona-tab {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    color: rgba(148, 163, 184, 0.7);
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.persona-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+}
+
+.persona-tab.active {
+    color: var(--text-light);
+}
+
+.persona-tab.active::after {
+    transform: scaleX(1);
+}
+
+.persona-tab:hover:not(.active) {
+    color: var(--text-light-muted);
+}
+
+/* Panel content */
+.persona-content {
+    position: relative;
+}
+
+.persona-panel {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+.persona-panel.active {
+    display: grid;
+    animation: fadePanel 0.3s ease;
+}
+
+@keyframes fadePanel {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.persona-label {
+    font-size: 0.8rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: var(--accent) !important;
+    margin-bottom: 0.75rem;
+}
+
+.persona-left h3 {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    line-height: 1.2;
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+}
+
+.persona-left p {
+    color: var(--text-light-muted) !important;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.persona-right {
+    padding-top: 1rem;
+}
+
+.persona-right-label {
+    font-size: 0.75rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: rgba(148, 163, 184, 0.4) !important;
+    margin-bottom: 1.5rem;
+}
+
+.persona-list {
+    list-style: none;
     display: flex;
     flex-direction: column;
 }
 
-.audience-row {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 2rem;
-    padding: 2.5rem 0;
-    border-top: 1px solid var(--border-color);
-    align-items: start;
-}
-
-.audience-row:last-child {
-    border-bottom: 1px solid var(--border-color);
-}
-
-.audience-row-num {
-    font-size: 2.5rem;
-    font-weight: 900;
-    font-family: var(--font-heading);
-    color: #E5E7EB;
-    line-height: 1;
-    padding-top: 0.2rem;
-}
-
-.audience-row-body h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-    color: var(--text-dark);
-}
-
-.audience-row-body p {
+.persona-list li {
     font-size: 1rem;
-    max-width: 640px;
+    color: var(--text-light-muted);
+    padding: 1.1rem 0 1.1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    line-height: 1.5;
+    position: relative;
+}
+
+.persona-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
 }
 
 @media (max-width: 768px) {
-    .audience-row {
-        grid-template-columns: 50px 1fr;
-        gap: 1.25rem;
+    .persona-panel.active {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
-    .audience-row-num {
-        font-size: 1.75rem;
+    .persona-tab {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
     }
 }
 
