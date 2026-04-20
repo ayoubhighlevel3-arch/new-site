@@ -372,51 +372,106 @@ p { color: var(--text-muted); font-size: 1.125rem; }
     margin-bottom: 1rem;
 }
 
-/* Problem Section — editorial split */
+/* Problem Section — stat-led full-width editorial */
 .problem-section {
     background-color: var(--bg-white);
     border-bottom: 1px solid var(--border-color);
 }
 
-.problem-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
+.problem-intro {
+    max-width: 820px;
+    margin-bottom: 4rem;
 }
 
-.problem-left h2 {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    line-height: 1.2;
+.problem-intro h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
     margin-top: 0.5rem;
-}
-
-.problem-lead {
-    font-size: 1.2rem;
-    font-weight: 500;
     color: var(--text-dark);
-    margin-bottom: 1.25rem;
 }
 
-.problem-right p {
-    margin-bottom: 1rem;
+/* Fact grid */
+.problem-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 3.5rem;
 }
 
-.problem-right blockquote {
-    margin-top: 2rem;
-    padding-left: 1.25rem;
-    border-left: 3px solid var(--accent);
-    font-size: 1.1rem;
-    font-style: italic;
+.problem-fact {
+    padding: 2rem 2.5rem;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.problem-fact:last-child {
+    border-right: none;
+}
+
+.problem-fact strong {
+    font-size: 1.75rem;
+    font-weight: 900;
+    font-family: var(--font-heading);
     color: var(--text-dark);
-    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.problem-fact span {
+    font-size: 0.9rem;
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
+/* Body paragraph */
+.problem-body {
+    max-width: 780px;
+    margin-bottom: 3.5rem;
+}
+
+.problem-body p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+/* Full-width pull quote */
+.problem-quote {
+    border-top: 1px solid var(--border-color);
+    padding-top: 3rem;
+}
+
+.problem-quote blockquote {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: var(--text-dark);
+    font-style: italic;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 2rem;
+    border-left: 4px solid var(--accent);
+    max-width: 900px;
+}
+
 @media (max-width: 768px) {
-    .problem-container {
+    .problem-facts {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+    }
+    .problem-fact {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .problem-fact:last-child {
+        border-bottom: none;
+    }
+    .problem-quote blockquote {
+        font-size: 1.1rem;
     }
 }
 
